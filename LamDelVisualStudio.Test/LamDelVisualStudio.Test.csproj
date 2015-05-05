@@ -39,7 +39,14 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APITests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LamDelVisualStudio\LamDelVisualStudio.csproj">
+      <Project>{f1ad7086-9941-474f-be4d-bb7b04792524}</Project>
+      <Name>LamDelVisualStudio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

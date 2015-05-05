@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamDelVisualStudio.Test", "LamDelVisualStudio.Test\LamDelVisualStudio.Test.csproj", "{B4487B32-823D-4275-9761-955A52606CA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamDelVisualStudio", "LamDelVisualStudio\LamDelVisualStudio.csproj", "{F1AD7086-9941-474F-BE4D-BB7B04792524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamDelVisualStudio.Test.Concole", "LamDelVisualStudio.Test.Concole\LamDelVisualStudio.Test.Concole.csproj", "{2CA3C2F6-0195-4989-9684-D06E57098595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F1AD7086-9941-474F-BE4D-BB7B04792524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1AD7086-9941-474F-BE4D-BB7B04792524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1AD7086-9941-474F-BE4D-BB7B04792524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA3C2F6-0195-4989-9684-D06E57098595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA3C2F6-0195-4989-9684-D06E57098595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA3C2F6-0195-4989-9684-D06E57098595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA3C2F6-0195-4989-9684-D06E57098595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
