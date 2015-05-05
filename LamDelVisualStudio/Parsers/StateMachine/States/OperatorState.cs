@@ -11,14 +11,19 @@ namespace LamDel.Parsers.StateMachine.States
     {
         private char _ch;
 
-        public OperatorState()
+        public OperatorState(char ch)
         {
-            
+            _ch = ch;
         }
 
         protected override Dictionary<char, Func<char, StatePassage>> CreatePassageMap()
         {
             var baseMap = SharedPassages.GetOperatorPassagesMap((ch) => this);
+
+            foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(ch), (ch) => CurrentToken))
+            {
+                baseMap[pair.Key] = pair.Value;
+            }
 
             return baseMap;
         }
@@ -30,7 +35,7 @@ namespace LamDel.Parsers.StateMachine.States
 
         protected override void ProcessInput(char ch)
         {
-            _ch = ch;
+            
         }
     }
 }

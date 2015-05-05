@@ -27,6 +27,14 @@ namespace LamDel.Parsers.StateMachine.States
 
             baseMap.Add('.', (ch) => new StatePassage { NextState = new DoubleState((decimal)_currentState), Token = null });
 
+            Func<char, IState> operatorState = (ch) => new OperatorState(ch);
+            var operatorMap = SharedPassages.GetOperatorPassagesMap(operatorState, (ch) => new Constant(_currentState));
+
+            foreach (var pair in operatorMap)
+            {
+                baseMap[pair.Key] = pair.Value;
+            }
+
             return baseMap;
         }
 

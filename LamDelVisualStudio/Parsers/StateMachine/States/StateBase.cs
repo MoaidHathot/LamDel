@@ -35,20 +35,20 @@ namespace LamDel.Parsers.StateMachine.States
                 { (char)0, (ch) => new StatePassage { NextState = null, Token = CurrentToken} }
             };
 
-            Func<char, IState> operatorState = (ch) => new OperatorState();
-            var operatorMap = SharedPassages.GetOperatorPassagesMap(operatorState);
+            //Func<char, IState> operatorState = (ch) => new OperatorState();
+            //var operatorMap = SharedPassages.GetOperatorPassagesMap(operatorState);
 
-            foreach (var pair in whiteSpaceMap)
-            {
-                operatorMap[pair.Key] = pair.Value;
-            }
-
-            //foreach(var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(ch)))
+            //foreach (var pair in whiteSpaceMap)
             //{
             //    operatorMap[pair.Key] = pair.Value;
             //}
 
-            return operatorMap;
+            //foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(ch)))
+            //{
+            //    operatorMap[pair.Key] = pair.Value;
+            //}
+
+            return whiteSpaceMap;
         }
 
         public StatePassage Next(char ch)

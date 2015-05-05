@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using LamDel.Parsers;
 using LamDel.Parsers.StateMachine;
 using LamDel.Parsers.StateMachine.States;
@@ -28,7 +29,13 @@ namespace LamDelVisualStudio.Test.Concole
                 {
                     if (0 < input.Trim().Length)
                     {
-                        Console.WriteLine("Input: '{0}', Result: '{1}'", input, parser.Parse(input).Evaluate());
+                        var watch = new Stopwatch();
+
+                        watch.Start();
+                        var parsed = parser.Parse(input).Evaluate();
+                        watch.Stop();
+
+                        Console.WriteLine("Input: '{0}', Result: '{1}'. Elapsed: '{2}'", input, parsed, watch.Elapsed.TotalMilliseconds);
                     }
                 }
                 else

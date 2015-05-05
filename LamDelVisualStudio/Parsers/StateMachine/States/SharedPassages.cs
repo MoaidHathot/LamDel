@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LamDel.Shared;
 
 namespace LamDel.Parsers.StateMachine.States
 {
@@ -9,7 +10,12 @@ namespace LamDel.Parsers.StateMachine.States
     {
         internal static Dictionary<char, Func<char, StatePassage>> GetIntegerPassagesMap(Func<char, IState> stateCreator)
         {
-            Func<char, StatePassage> numberPassage = (ch) => new StatePassage { NextState = stateCreator(ch), Token = null };
+            return GetIntegerPassagesMap(stateCreator, (ch) => null);
+        }
+
+        internal static Dictionary<char, Func<char, StatePassage>> GetIntegerPassagesMap(Func<char, IState> stateCreator, Func<char, IEvaluatable> tokenCreator)
+        {
+            Func<char, StatePassage> numberPassage = (ch) => new StatePassage { NextState = stateCreator(ch), Token = tokenCreator(ch) };
 
             return new Dictionary<char, Func<char, StatePassage>>()
             {
@@ -28,7 +34,12 @@ namespace LamDel.Parsers.StateMachine.States
 
         internal static Dictionary<char, Func<char, StatePassage>> GetOperatorPassagesMap(Func<char, IState> stateCreator)
         {
-            Func<char, StatePassage> numberPassage = (ch) => new StatePassage { NextState = stateCreator(ch), Token = null };
+            return GetOperatorPassagesMap(stateCreator, (ch) => null);
+        }
+
+        internal static Dictionary<char, Func<char, StatePassage>> GetOperatorPassagesMap(Func<char, IState> stateCreator, Func<char, IEvaluatable> tokenCreator)
+        {
+            Func<char, StatePassage> numberPassage = (ch) => new StatePassage { NextState = stateCreator(ch), Token = tokenCreator(ch) };
 
             return new Dictionary<char, Func<char, StatePassage>>()
             {
