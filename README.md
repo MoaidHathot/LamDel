@@ -1,5 +1,6 @@
 # LamDel
 Simple and fast Math expression parser library that supports custom variable and functions.
+(work is in progress)
 
 The LamDel library is a math expression parses and evaluater that parses and evaluates string expressions in O(n) time complexity, when n is the expression's length, using a single passage over the string.  
 It supports both Unary and Binary operators in addition to variables and functions. Functions and Operators can be added, updated and changed by the user during runtime.  
