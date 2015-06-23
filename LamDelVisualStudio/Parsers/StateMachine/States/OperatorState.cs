@@ -11,7 +11,8 @@ namespace LamDel.Parsers.StateMachine.States
     {
         private char _ch;
 
-        public OperatorState(char ch)
+        public OperatorState(StateMachineContext context, char ch)
+            : base(context)
         {
             _ch = ch;
         }
@@ -20,7 +21,7 @@ namespace LamDel.Parsers.StateMachine.States
         {
             var baseMap = SharedPassages.GetOperatorPassagesMap((ch) => this);
 
-            foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(ch), (ch) => CurrentToken))
+            foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(_context, ch), (ch) => CurrentToken))
             {
                 baseMap[pair.Key] = pair.Value;
             }

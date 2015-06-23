@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LamDel.Shared.Exceptions;
 
-namespace LamDel.Shared
+namespace LamDel.Shared.Evaluatables
 {
     public abstract class EvaluatableBase : IEvaluatable
     {

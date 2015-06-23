@@ -17,7 +17,7 @@ namespace LamDel.Parsers.StateMachine
         {
             _input = input;
 
-            _currentState = new OriginState();
+            _currentState = new OriginState(new StateMachineContext());
         }
 
         public IEnumerable<IEvaluatable> States

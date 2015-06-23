@@ -5,9 +5,8 @@ using System.Text;
 
 namespace LamDel.Shared
 {
-    public static class OperatorPriority
+    interface IPrioritized
     {
-        public const int Low = 1;
-        public const int High = 2;
+        int Priority { get; set; }
     }
 }

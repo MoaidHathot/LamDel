@@ -8,7 +8,7 @@ using LamDel.Parsers;
 using LamDel.Parsers.StateMachine;
 using LamDel.Parsers.StateMachine.States;
 using LamDel.Shared;
-using LamDel.Shared.Types;
+using LamDel.Shared.Evaluatables.Tokens;
 
 namespace LamDelVisualStudio.Test.Concole
 {

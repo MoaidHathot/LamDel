@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LamDel.Shared;
-using LamDel.Shared.Types;
+using LamDel.Shared.Evaluatables.Tokens;
 
 namespace LamDel.Parsers
 {
     class Symbols
     {
         private static readonly Symbols _default = new Symbols();
-        private Dictionary<char, IOperator> _operators = new Dictionary<char, IOperator>();
+        private Dictionary<char, Func<int, IOperator>> _operators = new Dictionary<char, IOperator>();
 
         public static Symbols Default { get { return _default; } }
         public Dictionary<char, IOperator> Operators { get { return _operators; } }
@@ -22,11 +22,11 @@ namespace LamDel.Parsers
 
         private void InitDefaultOperators()
         {
-            _operators['+'] = new BinaryOperator(OperatorPriority.Low, (a, b) => a + b);
-            _operators['-'] = new BinaryOperator(OperatorPriority.Low, (a, b) => a - b);
-            _operators['*'] = new BinaryOperator(OperatorPriority.High, (a, b) => a * b);
-            _operators['/'] = new BinaryOperator(OperatorPriority.High, (a, b) => a / b);
-            _operators['^'] = new BinaryOperator(OperatorPriority.High, (a, b) => (decimal)Math.Pow((double)a, (double)b));
+            _operators['+'] = new BinaryOperatorToken(OperatorPriority.Low, (a, b) => a + b);
+            _operators['-'] = new BinaryOperatorToken(OperatorPriority.Low, (a, b) => a - b);
+            _operators['*'] = new BinaryOperatorToken(OperatorPriority.High, (a, b) => a * b);
+            _operators['/'] = new BinaryOperatorToken(OperatorPriority.High, (a, b) => a / b);
+            _operators['^'] = new BinaryOperatorToken(OperatorPriority.High, (a, b) => (decimal)Math.Pow((double)a, (double)b));
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LamDel.Shared;
-using LamDel.Shared.Types;
+using LamDel.Shared.Evaluatables.Tokens;
 
 namespace LamDel.Parsers.StateMachine.States
 {
@@ -12,7 +12,8 @@ namespace LamDel.Parsers.StateMachine.States
         private long _currentState = 0;
         private int _updatesCount;
 
-        public IntegerState(char ch = (char)0)
+        public IntegerState(StateMachineContext context, char ch = (char)0)
+            : base(context)
         {
             if ((char)0 != ch)
             {
@@ -25,10 +26,10 @@ namespace LamDel.Parsers.StateMachine.States
             //var baseMap = IntegerState.GetNumberPassagesMap((ch) => this);
             var baseMap = SharedPassages.GetIntegerPassagesMap((ch) => this);
 
-            baseMap.Add('.', (ch) => new StatePassage { NextState = new DoubleState((decimal)_currentState), Token = null });
+            baseMap.Add('.', (ch) => new StatePassage { NextState = new DoubleState(_context, (decimal)_currentState), Token = null });
 
-            Func<char, IState> operatorState = (ch) => new OperatorState(ch);
-            var operatorMap = SharedPassages.GetOperatorPassagesMap(operatorState, (ch) => new Constant(_currentState));
+            Func<char, IState> operatorState = (ch) => new OperatorState(_context, ch);
+            var operatorMap = SharedPassages.GetOperatorPassagesMap(operatorState, (ch) => new ConstantToken(_currentState));
 
             foreach (var pair in operatorMap)
             {
@@ -47,6 +48,6 @@ namespace LamDel.Parsers.StateMachine.States
             }
         }
 
-        protected override IEvaluatable CurrentToken { get { return new Constant(_currentState); } }
+        protected override IEvaluatable CurrentToken { get { return new ConstantToken(_currentState); } }
     }
 }

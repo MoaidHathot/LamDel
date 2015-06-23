@@ -50,9 +50,13 @@
     <Compile Include="Parsers\StateMachine\States\OriginState.cs" />
     <Compile Include="Parsers\StateMachine\States\SharedPassages.cs" />
     <Compile Include="Parsers\StateMachine\States\StateBase.cs" />
+    <Compile Include="Parsers\StateMachine\States\StateMachineContext.cs" />
+    <Compile Include="Parsers\StateMachine\SymbolToken.cs" />
     <Compile Include="Parsers\Symbols.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shared\EvaluatableBase.cs" />
+    <Compile Include="Shared\Evaluatables\EvaluatableBase.cs" />
+    <Compile Include="Shared\Evaluatables\Expressions\BinaryOperatorExpression.cs" />
+    <Compile Include="Shared\Evaluatables\Expressions\OperatorExpression.cs" />
     <Compile Include="Shared\Exceptions\LamDelException.cs" />
     <Compile Include="Shared\Exceptions\TooFewArgumentsException.cs" />
     <Compile Include="Shared\Exceptions\TooManyArgumentsException.cs" />
@@ -61,11 +65,12 @@
     <Compile Include="Shared\Interfaces\IFunction.cs" />
     <Compile Include="Shared\Interfaces\IOperator.cs" />
     <Compile Include="Shared\Interfaces\IParser.cs" />
-    <Compile Include="Shared\Types\BinaryOperator.cs" />
-    <Compile Include="Shared\Types\Constant.cs" />
-    <Compile Include="Shared\Types\Operator.cs" />
+    <Compile Include="Shared\Evaluatables\Tokens\BinaryOperatorToken.cs" />
+    <Compile Include="Shared\Evaluatables\Tokens\ConstantToken.cs" />
+    <Compile Include="Shared\Evaluatables\Tokens\OperatorToken.cs" />
+    <Compile Include="Shared\Interfaces\IPrioritized.cs" />
     <Compile Include="Shared\OperatorPriority.cs" />
-    <Compile Include="Shared\Types\UnaryOperator.cs" />
+    <Compile Include="Shared\Evaluatables\Tokens\UnaryOperatorToken.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

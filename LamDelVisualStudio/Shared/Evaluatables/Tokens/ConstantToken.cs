@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LamDel.Shared.Types
+namespace LamDel.Shared.Evaluatables.Tokens
 {
-    class Constant : EvaluatableBase
+    class ConstantToken : IEvaluatable
     {
         private decimal _constant;
 
-        public Constant(decimal constant)
-            : base(0)
+        public ConstantToken(decimal constant)
         {
             _constant = constant;
         }
 
-        
-        protected override decimal InnerEvaluate(params decimal[] args)
+        public decimal Evaluate(params decimal[] args)
         {
             return _constant;
         }

@@ -8,10 +8,12 @@ namespace LamDel.Parsers.StateMachine.States
 {
     abstract class StateBase : IState
     {
-        Dictionary<char, Func<char, StatePassage>> _map;
+        private Dictionary<char, Func<char, StatePassage>> _map;
+        protected StateMachineContext _context;
 
-        public StateBase()
+        public StateBase(StateMachineContext context)
         {
+            _context = context;
             _map = CreatePassageMap();
 
             foreach (var pair in CreateSharedPassageMap())

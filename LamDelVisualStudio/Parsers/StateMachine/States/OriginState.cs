@@ -8,11 +8,17 @@ namespace LamDel.Parsers.StateMachine.States
 {
     class OriginState : StateBase
     {
+        public OriginState(StateMachineContext context)
+            : base(context)
+        {
+
+        }
+
         protected override Dictionary<char, Func<char, StatePassage>> CreatePassageMap()
         {
             var map = new Dictionary<char, Func<char, StatePassage>>();
 
-            foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(ch)))
+            foreach (var pair in SharedPassages.GetIntegerPassagesMap((ch) => new IntegerState(_context, ch)))
             {
                 map.Add(pair.Key, pair.Value);
             }
